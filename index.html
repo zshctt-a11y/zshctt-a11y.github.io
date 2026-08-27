@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MG MAX — Electric Scooters, E-Bikes & Mopeds | TUFRONT</title>
+<style>
+:root{
+  --red:#e8102e; --red-dark:#a80c22; --black:#0a0a0b; --panel:#131315;
+  --silver:#c9ccd1; --white:#f5f6f7; --muted:#8a8d93; --line:#232326;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:"Segoe UI",-apple-system,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+h1,h2,h3,.display{font-family:"Arial Black","Segoe UI",sans-serif;font-style:italic;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img{display:block}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+.accent{color:var(--red)}
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1280px;margin:0 auto;padding:0 28px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:44px;width:44px;border-radius:50%}
+.brand b{font-size:20px;font-style:italic;letter-spacing:.04em}
+.brand b span{color:var(--red)}
+.nav-links{display:flex;gap:32px;font-size:14px;text-transform:uppercase;letter-spacing:.12em;color:var(--silver)}
+.nav-links a{position:relative;padding:6px 0;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{background:var(--red);color:#fff;padding:10px 22px;border-radius:4px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:background .2s}
+.nav-cta:hover{background:var(--red-dark)}
+.burger{display:none;background:none;border:0;color:var(--white);font-size:26px}
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding-top:72px;overflow:hidden;
+  background:radial-gradient(1200px 600px at 75% 20%,rgba(232,16,46,.14),transparent 60%),var(--black)}
+.hero::before{content:"";position:absolute;inset:0;background:
+  repeating-linear-gradient(115deg,transparent 0 120px,rgba(255,255,255,.015) 120px 121px)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative}
+.kicker{display:inline-flex;align-items:center;gap:10px;color:var(--red);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.3em;margin-bottom:22px}
+.kicker::before{content:"";width:40px;height:2px;background:var(--red)}
+.hero h1{font-size:clamp(52px,7.5vw,108px);line-height:.92;text-transform:uppercase}
+.hero h1 .metal{background:linear-gradient(180deg,#fff 20%,#9ba0a8 55%,#e6e8eb 75%,#7d818a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{margin:26px 0 36px;color:var(--silver);font-size:18px;max-width:520px;line-height:1.7}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;padding:16px 34px;border-radius:4px;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.12em;transition:transform .2s,background .2s,border-color .2s}
+.btn-red{background:var(--red);color:#fff;clip-path:polygon(0 0,100% 0,94% 100%,0 100%)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--silver);color:var(--white)}
+.btn-ghost:hover{border-color:var(--red);color:var(--red)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-visual img{width:min(480px,90%);filter:drop-shadow(0 30px 60px rgba(232,16,46,.25));animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+.hero-stats{display:flex;gap:0;margin-top:64px;border-top:1px solid var(--line)}
+.hstat{flex:1;padding:22px 8px 0;border-left:1px solid var(--line)}
+.hstat:first-child{border-left:0;padding-left:0}
+.hstat b{display:block;font-size:30px;font-style:italic}
+.hstat span{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.15em}
+/* ---------- MARQUEE ---------- */
+.marquee{border-block:1px solid var(--line);background:var(--panel);overflow:hidden;padding:16px 0}
+.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 26s linear infinite;font-style:italic;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.2em;color:var(--silver)}
+.marquee-track i{color:var(--red);font-style:normal}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* ---------- SECTIONS ---------- */
+section{padding:110px 0}
+.sec-head{margin-bottom:56px}
+.sec-head .kicker{margin-bottom:14px}
+.sec-head h2{font-size:clamp(36px,4.5vw,58px);text-transform:uppercase;line-height:1}
+.sec-head p{margin-top:16px;color:var(--muted);max-width:640px;line-height:1.7}
+/* ---------- TABS + PRODUCT CARDS ---------- */
+.tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.tab{padding:12px 26px;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--silver);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s}
+.tab:hover{border-color:var(--red);color:var(--white)}
+.tab.active{background:var(--red);border-color:var(--red);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-6px);border-color:rgba(232,16,46,.5);box-shadow:0 24px 48px rgba(0,0,0,.5)}
+.card-top{position:relative;padding:30px 26px 10px;background:
+  radial-gradient(240px 160px at 50% 0%,rgba(232,16,46,.12),transparent 70%)}
+.card-badge{position:absolute;top:14px;left:14px;background:var(--red);color:#fff;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:3px}
+.card-name{font-size:30px;font-style:italic;text-transform:uppercase;margin-top:6px}
+.card-tag{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.15em;margin-top:4px}
+.pimg{display:flex;align-items:center;justify-content:center;height:190px;margin:6px 0 2px}
+.pimg img{max-width:88%;max-height:190px;object-fit:contain;transition:transform .3s}
+.card:hover .pimg img{transform:scale(1.06)}
+/* svg scooter illustration */
+.scoot{width:100%;height:120px;margin:8px 0 2px}
+.specs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:8px}
+.spec{padding:14px 8px;text-align:center;border-left:1px solid var(--line)}
+.spec:first-child{border-left:0}
+.spec b{display:block;font-size:16px}
+.spec span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.card-foot{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-top:1px solid var(--line);margin-top:auto}
+.price b{font-size:24px;font-style:italic}
+.price span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+.card-btn{background:transparent;border:1px solid var(--silver);color:var(--white);padding:9px 18px;border-radius:3px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;cursor:pointer;transition:all .2s}
+.card:hover .card-btn{background:var(--red);border-color:var(--red)}
+/* ---------- FEATURE STRIP (kukirin style) ---------- */
+.feature{background:var(--panel);border-block:1px solid var(--line)}
+.feature-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.feature-row.rev>.f-text{order:2}
+.f-visual{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;background:
+  radial-gradient(320px 240px at 50% 50%,rgba(232,16,46,.16),transparent 70%)}
+.f-visual .big{font-size:clamp(60px,8vw,120px);font-style:italic;font-weight:900;color:transparent;-webkit-text-stroke:1.5px rgba(232,16,46,.65);text-transform:uppercase;line-height:.9;text-align:center}
+.f-text h3{font-size:clamp(30px,3.4vw,44px);text-transform:uppercase;line-height:1.05;margin-bottom:18px}
+.f-text p{color:var(--silver);line-height:1.8;margin-bottom:28px}
+.f-specs{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.f-spec{background:var(--black);padding:18px}
+.f-spec b{display:block;font-size:22px;font-style:italic;color:var(--red)}
+.f-spec span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
+/* ---------- WHY ---------- */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.why-card{border:1px solid var(--line);border-radius:10px;padding:30px 26px;background:linear-gradient(180deg,var(--panel),var(--black));transition:border-color .25s,transform .25s}
+.why-card:hover{border-color:rgba(232,16,46,.5);transform:translateY(-4px)}
+.why-num{font-size:14px;font-weight:900;color:var(--red);letter-spacing:.2em;margin-bottom:16px}
+.why-card h4{font-size:18px;text-transform:uppercase;margin-bottom:10px;font-style:italic}
+.why-card p{color:var(--muted);font-size:14px;line-height:1.7}
+/* ---------- CTA / CONTACT ---------- */
+.cta{background:linear-gradient(120deg,#160507,var(--black) 55%),radial-gradient(600px 300px at 80% 20%,rgba(232,16,46,.25),transparent 60%);text-align:center}
+.cta h2{font-size:clamp(38px,5vw,66px);text-transform:uppercase}
+.cta p{color:var(--silver);margin:20px auto 36px;max-width:560px;line-height:1.8}
+.cta-mail{font-size:clamp(20px,3vw,34px);font-weight:900;font-style:italic;color:var(--red)}
+footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-size:13px}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-visual{order:-1}
+  .feature-row{grid-template-columns:1fr}
+  .feature-row.rev>.f-text{order:0}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;position:absolute;top:72px;left:0;right:0;flex-direction:column;background:var(--black);padding:20px 28px;gap:18px;border-bottom:1px solid var(--line)}
+}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr}.hero-stats{flex-wrap:wrap}.hstat{flex:1 1 40%}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand" href="#top"><img data-img="logo" alt="MG MAX logo"><b>MG <span>MAX</span></b></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#scooters">E-Scooters</a>
+      <a href="#bikes">E-Bikes</a>
+      <a href="#featured">Featured</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#contact">Get a Quote</a>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">TUFRONT · Global 2026 Catalogue</div>
+      <h1><span class="metal">RIDE</span><br><span class="accent">BEYOND</span> <span class="metal">LIMITS</span></h1>
+      <p class="lead">Performance e-scooters, volume models, e-bikes, tricycles and mopeds — 60+ sellable SKUs from one supplier. EU &amp; US warehouse stock, DDP door pricing, full CE / UL compliance.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#scooters">Explore the Range</a>
+        <a class="btn btn-ghost" href="#contact">Talk to Sales</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><b class="accent">53+</b><span>Priced SKUs</span></div>
+        <div class="hstat"><b class="accent">100</b><span>km/h Top Speed</span></div>
+        <div class="hstat"><b class="accent">3–7</b><span>Days EU Delivery</span></div>
+        <div class="hstat"><b class="accent">30</b><span>Years Manufacturing</span></div>
+      </div>
+    </div>
+    <div class="hero-visual"><img data-img="logo" alt="MG MAX electric scooter"></div>
+  </div>
+</header>
+
+<div class="marquee"><div class="marquee-track" id="mq"></div></div>
+
+<section id="scooters">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Find Your Ride</div>
+      <h2>Full <span class="accent">2026</span> Lineup</h2>
+      <p>Headline prices are retail DDP door prices in USD. Every model ships EU-compliant at 25 km/h with a documented unlock procedure for closed-course performance.</p>
+    </div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-line="all">All Models</button>
+      <button class="tab" data-line="A">E-Series · Performance</button>
+      <button class="tab" data-line="B">SMD · Factory Direct</button>
+      <button class="tab" data-line="C">E-Bikes &amp; Mopeds</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="feature" id="featured">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Featured</div>
+      <h2>Built for <span class="accent">Speed</span></h2>
+    </div>
+    <div class="feature-row">
+      <div class="f-text">
+        <h3>MT-X2 — <span class="accent">The Flagship</span></h3>
+        <p>A 2500W powerhouse with 80 km/h top speed and a 100 km range. Sealed potted battery, IP55 motor, IP65 controller — engineered for rental fleets and year-round riding.</p>
+        <div class="f-specs">
+          <div class="f-spec"><b>2500W</b><span>Motor</span></div>
+          <div class="f-spec"><b>80 km/h</b><span>Max Speed</span></div>
+          <div class="f-spec"><b>100 km</b><span>Range</span></div>
+          <div class="f-spec"><b>$1,610</b><span>Retail DDP</span></div>
+        </div>
+      </div>
+      <div class="f-visual"><div class="big">MT-X2</div></div>
+    </div>
+    <div style="height:80px"></div>
+    <div class="feature-row rev">
+      <div class="f-text">
+        <h3>E7 Ultra — <span class="accent">Dual Motor Beast</span></h3>
+        <p>Dual 1500W motors, 70 km/h top speed and 75–85 km of real range. Motor thermal protection stages at 120°C / 130°C with automatic current limiting — a warranty-saver most competitors ignore.</p>
+        <div class="f-specs">
+          <div class="f-spec"><b>2×1500W</b><span>Dual Motor</span></div>
+          <div class="f-spec"><b>70 km/h</b><span>Max Speed</span></div>
+          <div class="f-spec"><b>85 km</b><span>Range</span></div>
+          <div class="f-spec"><b>$1,458</b><span>Retail DDP</span></div>
+        </div>
+      </div>
+      <div class="f-visual"><div class="big">E7 Ultra</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Why TUFRONT</div>
+      <h2>One Supplier. <span class="accent">Zero Compromise.</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-num">01</div><h4>Factory Pricing</h4><p>TUFRONT controls the E-Series tooling and assembly — manufacturer cost structure, not trading-company mark-up.</p></div>
+      <div class="why-card"><div class="why-num">02</div><h4>Full Compliance</h4><p>CE-EN17128 / CE-MD / CE-RED / CE-ROHS, UL2272 + FCC ID, batteries UL2271 / IEC 62133 / UN38.3. Documents released with the PI.</p></div>
+      <div class="why-card"><div class="why-num">03</div><h4>EU Warehouse</h4><p>Stock held in Europe. DDP door price, dropship a single unit or a full pallet, 3–7 day delivery, no import paperwork.</p></div>
+      <div class="why-card"><div class="why-num">04</div><h4>12-Month Warranty</h4><p>Frame, motor, controller and battery covered for 12 months, with spare-parts support for 3 years.</p></div>
+      <div class="why-card"><div class="why-num">05</div><h4>Speed Unlock</h4><p>Ships EU-compliant at 25 km/h; the documented 5× M-button procedure unlocks up to 80 km/h for closed-course use.</p></div>
+      <div class="why-card"><div class="why-num">06</div><h4>Thermal Protection</h4><p>Coil temperature staging with automatic current limiting prevents magnet demagnetisation.</p></div>
+      <div class="why-card"><div class="why-num">07</div><h4>Battery Choice</h4><p>Most SMD models offer 3–4 battery capacities — tune price point and range per market.</p></div>
+      <div class="why-card"><div class="why-num">08</div><h4>20,000 m² Plant</h4><p>30 years of manufacturing with capacity for container-level repeat orders and a consistent BOM.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <h2>Ready to <span class="accent">Ride?</span></h2>
+    <p>T/T 30% deposit + 70% before shipment · L/C at sight above 300 pcs · Alibaba.com Trade Assurance accepted. Prices valid until 2026-12-31.</p>
+    <div class="cta-mail">sales@tufront.com</div>
+    <p style="margin-top:14px;font-size:14px">Alibaba.com store: <b>tufronthk</b></p>
+    <div style="margin-top:32px"><a class="btn btn-red" href="mailto:sales@tufront.com">Request Full Price List</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 TUFRONT TECHNOLOGY CO., LTD. · Quotation TF-GL-2026</span>
+    <span>Global markets — Americas · Middle East · Asia-Pacific · Africa</span>
+  </div>
+</footer>
+
+<script src="images.js"></script>
+<script src="products-data.js"></script>
+<script>
+const HOT = {"E5 Ultra":1,"E7 Ultra":1,"MT-X2":1,"ZM22 Dual Motor":1};
+const PRODUCTS = MODELS.map(d => ({n:d.name, l:d.line, m:(d.configs[0]||{}).Motor||"", s:(d.configs[0]||{})["Max speed"]||"", r:(d.configs[0]||{}).Range||"", p:d.price, t:(d.headline[3]||{A:"E-Series",B:"SMD",C:"E-Bikes & Mopeds"}[d.line]), img:d.img, url:"product.html?p="+d.slug, hot:HOT[d.name]||0}));
+const OLD_PRODUCTS = [
+  {n:"E3",l:"A",m:"1000W single",s:"45 km/h (EU 25)",r:"35-45 km",p:529.98,t:"E-Series \u00b7 Performance",img:"products/img/e3.jpg",url:"products/e3.html"},
+  {n:"E3S",l:"A",m:"1000W single",s:"45 km/h (EU 25)",r:"35-45 km",p:536.73,t:"E-Series \u00b7 Performance",img:"products/img/e3s.jpg",url:"products/e3s.html"},
+  {n:"E3 Pro",l:"A",m:"1200W single",s:"50 km/h (EU 25)",r:"40-50 km",p:586.2,t:"E-Series \u00b7 Performance",img:"products/img/e3-pro.jpg",url:"products/e3-pro.html"},
+  {n:"E5 Pro",l:"A",m:"1200W x2 dual",s:"60 km/h (EU 25)",r:"50-60 km",p:850.84,t:"E-Series \u00b7 Performance",img:"products/img/e5-pro.jpg",url:"products/e5-pro.html"},
+  {n:"E5 Ultra",l:"A",m:"1500W x2 dual",s:"70 km/h (EU 25)",r:"65-75 km",p:882.39,t:"E-Series \u00b7 Performance",img:"products/img/e5-ultra.jpg",url:"products/e5-ultra.html",hot:1},
+  {n:"E7 Pro",l:"A",m:"1200W x2 dual",s:"70 km/h (EU 25)",r:"75 km",p:1281.76,t:"E-Series \u00b7 Performance",img:"products/img/e7-pro.jpg",url:"products/e7-pro.html"},
+  {n:"E7 Ultra",l:"A",m:"1500W x2 dual",s:"70 km/h (EU 25)",r:"75-85 km",p:1458.44,t:"E-Series \u00b7 Performance",img:"products/img/e7-ultra.jpg",url:"products/e7-ultra.html",hot:1},
+  {n:"MT-X Pro",l:"A",m:"1500W x2 dual",s:"60 km/h (EU 25)",r:"75-85 km",p:1197.68,t:"E-Series \u00b7 Performance",img:"products/img/mt-x-pro.jpg",url:"products/mt-x-pro.html"},
+  {n:"MT-X Max",l:"A",m:"1500W x2 dual",s:"80 km/h (EU 25)",r:"85-100 km",p:1580.76,t:"E-Series \u00b7 Performance",img:"products/img/mt-x-max.jpg",url:"products/mt-x-max.html"},
+  {n:"MT-G",l:"A",m:"1500W x2 dual",s:"60 km/h (EU 25)",r:"75-85 km",p:1298.89,t:"E-Series \u00b7 Performance",img:"products/img/mt-g.jpg",url:"products/mt-g.html"},
+  {n:"MT-P",l:"A",m:"",s:"",r:"",p:1520.23,t:"E-Series \u00b7 Performance",img:"products/img/mt-p.jpg",url:"products/mt-p.html"},
+  {n:"MT-X2",l:"A",m:"",s:"",r:"",p:1610.28,t:"E-Series \u00b7 Performance",img:"products/img/mt-x2.jpg",url:"products/mt-x2.html",hot:1},
+  {n:"SMD-Z1",l:"B",m:"800W single",s:"45 km/h (15/30/45)",r:"30-60 km",p:641.91,t:"3 battery options",img:"products/img/smd-z1.jpg",url:"products/smd-z1.html"},
+  {n:"SMD-Z1 Pro",l:"B",m:"800W x2 dual",s:"45 km/h (15/30/45)",r:"30-55 km",p:846.27,t:"SMD \u00b7 Factory Direct",img:"products/img/smd-z1-pro.jpg",url:"products/smd-z1-pro.html"},
+  {n:"SMD-Z1 Pro+",l:"B",m:"800W x2 dual",s:"45 km/h (15/30/45)",r:"35-60 km",p:870.88,t:"SMD \u00b7 Factory Direct",img:"products/img/smd-z1-pro-plus.jpg",url:"products/smd-z1-pro-plus.html"},
+  {n:"SMD-Z4 Mini",l:"B",m:"800W single",s:"45 km/h (15/30/45)",r:"25-50 km",p:614.41,t:"3 battery options",img:"products/img/smd-z4-mini.jpg",url:"products/smd-z4-mini.html"},
+  {n:"SMD-Z6",l:"B",m:"1200W x2 dual",s:"65 km/h (25/40/65)",r:"35-70 km",p:1096.76,t:"5 battery options",img:"products/img/smd-z6.jpg",url:"products/smd-z6.html"},
+  {n:"SMD-S2",l:"B",m:"800W single",s:"45 km/h (15/25/45)",r:"30-50 km",p:609.41,t:"3 battery options",img:"products/img/smd-s2.jpg",url:"products/smd-s2.html"},
+  {n:"SMD-S6",l:"B",m:"1200W single",s:"55 km/h (25/40/55)",r:"30-55 km",p:701.88,t:"2 battery options",img:"products/img/smd-s6.jpg",url:"products/smd-s6.html"},
+  {n:"SMD-A1",l:"B",m:"800W single",s:"45 km/h (15/30/45)",r:"25-50 km",p:559.42,t:"3 battery options",img:"products/img/smd-a1.jpg",url:"products/smd-a1.html"},
+  {n:"SMD-M4",l:"B",m:"800W single",s:"45 km/h (15/30/45)",r:"30-60 km",p:601.91,t:"3 battery options",img:"products/img/smd-m4.jpg",url:"products/smd-m4.html"},
+  {n:"SMD-M4 Pro",l:"B",m:"800W single",s:"45 km/h (15/30/45)",r:"30-60 km",p:609.41,t:"4 battery options",img:"products/img/smd-m4-pro.jpg",url:"products/smd-m4-pro.html"},
+  {n:"SMD-M4 Pro Max",l:"B",m:"1200W x2 dual",s:"65 km/h (25/45/65)",r:"35-60 km",p:734.38,t:"2 battery options",img:"products/img/smd-m4-pro-max.jpg",url:"products/smd-m4-pro-max.html"},
+  {n:"SMD-H6",l:"B",m:"600W single",s:"45 km/h (15/30/45)",r:"25-50 km",p:594.42,t:"3 battery options",img:"products/img/smd-h6.jpg",url:"products/smd-h6.html"},
+  {n:"J15",l:"B",m:"800W single",s:"45 km/h",r:"30-55 km",p:674.91,t:"2 battery options",img:"products/img/j15.jpg",url:"products/j15.html"},
+  {n:"M300 E-Tricycle",l:"C",m:"36V 350W brushless geared hub",s:"25 km/h EU",r:"40-50 km",p:1274.843,t:"3 battery options",img:"products/img/m300-e-tricycle.jpg",url:"products/m300-e-tricycle.html"},
+  {n:"M6 Folding E-Bike",l:"C",m:"48V 500W one-piece wheel, 7-speed",s:"25 km/h EU",r:"50-60 km",p:1039.76,t:"E-Bikes & Mopeds",img:"products/img/m6-folding-e-bike.jpg",url:"products/m6-folding-e-bike.html"},
+  {n:"DK400 Pro",l:"C",m:"48V 500W spoke hub",s:"25 km/h EU",r:"45-55 km",p:1158.84,t:"E-Bikes & Mopeds",img:"products/img/dk400-pro.jpg",url:"products/dk400-pro.html"},
+  {n:"DK400 Max",l:"C",m:"48V 350W front + 500W rear dual",s:"25 km/h EU",r:"55-70 km",p:1332.84,t:"E-Bikes & Mopeds",img:"products/img/dk400-max.jpg",url:"products/dk400-max.html"},
+  {n:"L26D (with rack)",l:"C",m:"36V 250W",s:"25 km/h EU",r:"30-40 km",p:810.84,t:"E-Bikes & Mopeds",img:"products/img/l26d-with-rack.jpg",url:"products/l26d-with-rack.html"},
+  {n:"L26 (no rack)",l:"C",m:"36V 250W",s:"25 km/h EU",r:"30-40 km",p:752.8,t:"E-Bikes & Mopeds",img:"products/img/l26-no-rack.jpg",url:"products/l26-no-rack.html"},
+  {n:"ZM22 Single Motor",l:"C",m:"48V 750W spoke hub (marked 250W)",s:"25 km/h EU",r:"60-80 km",p:1666.44,t:"E-Bikes & Mopeds",img:"products/img/zm22-single-motor.jpg",url:"products/zm22-single-motor.html"},
+  {n:"ZM22 Dual Motor",l:"C",m:"52V 500W front + 750W rear",s:"25 km/h EU",r:"80-110 km",p:1796.25,t:"E-Bikes & Mopeds",img:"products/img/zm22-dual-motor.jpg",url:"products/zm22-dual-motor.html",hot:1},
+  {n:"UB12 E-Moped",l:"C",m:"1500W brushless",s:"25 km/h EU",r:"45-55 km",p:1508.84,t:"E-Bikes & Mopeds",img:"products/img/ub12-e-moped.jpg",url:"products/ub12-e-moped.html"},
+];
+const scooterSVG = `<svg class="scoot" viewBox="0 0 220 120" fill="none">
+  <circle cx="45" cy="92" r="24" stroke="#e8102e" stroke-width="3"/><circle cx="45" cy="92" r="15" stroke="#3a3d42" stroke-width="5"/>
+  <circle cx="182" cy="92" r="24" stroke="#e8102e" stroke-width="3"/><circle cx="182" cy="92" r="15" stroke="#3a3d42" stroke-width="5"/>
+  <path d="M45 92 L120 92 L168 88" stroke="#c9ccd1" stroke-width="7" stroke-linecap="round"/>
+  <path d="M168 88 L156 30" stroke="#c9ccd1" stroke-width="7" stroke-linecap="round"/>
+  <path d="M140 26 L176 22" stroke="#c9ccd1" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="140" cy="26" r="5" fill="#e8102e"/><circle cx="176" cy="22" r="5" fill="#e8102e"/>
+  <path d="M96 92 L112 62" stroke="#3a3d42" stroke-width="6" stroke-linecap="round"/>
+</svg>`;
+const grid = document.getElementById('grid');
+function render(line){
+  grid.innerHTML = PRODUCTS.filter(x=>line==='all'||x.l===line).map(x=>`
+    <a class="card" href="${x.url}">
+      <div class="card-top">
+        ${x.hot?'<span class="card-badge">Hot</span>':''}
+        <div class="card-name">${x.n}</div>
+        <div class="card-tag">${x.t}</div>
+        <div class="pimg"><img src="${IMG[x.img]}" alt="${x.n}" loading="lazy"></div>
+      </div>
+      <div class="specs">
+        <div class="spec"><b>${x.m}</b><span>Motor</span></div>
+        <div class="spec"><b>${x.s}</b><span>Max Speed</span></div>
+        <div class="spec"><b>${x.r}</b><span>Range</span></div>
+      </div>
+      <div class="card-foot">
+        <div class="price"><b>$${x.p.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</b><span>Retail · DDP Door</span></div>
+        <span class="card-btn">View →</span>
+      </div>
+    </a>`).join('');
+}
+document.querySelectorAll('[data-img]').forEach(el=>el.src=IMG[el.dataset.img]);
+render('all');
+document.getElementById('tabs').addEventListener('click',e=>{
+  const b=e.target.closest('.tab'); if(!b)return;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  b.classList.add('active'); render(b.dataset.line);
+});
+const items = PRODUCTS.slice(0,12).map(x=>`<span>${x.n} <i>///</i></span>`).join('');
+document.getElementById('mq').innerHTML = items + items;
+</script>
+</body>
+</html>

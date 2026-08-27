@@ -1,0 +1,12 @@
+quotation.xlsx
+cloudflared.exe
+webp/
+webp2/
+*.log
+bintest.bin
+dl*.bin
+dl_images.js
+pilot.js
+logo_latin1.txt
+cdn_urls.json
+img_map.json
